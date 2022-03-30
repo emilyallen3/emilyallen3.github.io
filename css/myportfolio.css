@@ -1,6 +1,21 @@
 /*----General Styling----*/
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0%;
+    opacity: 1;
+    transition: 3s opacity; /*3 second fade in*/
+    letter-spacing: 0.2vw;
+    font-size: 1.5vw;
+    overflow-x: hidden;
+    user-select:none;
+
+}
+
+body.fade-out {
+    opacity: 0.1;
 }
 
 h1 {
@@ -19,15 +34,16 @@ h1:hover {
 
 .white-text {
     color: #fff;
+    padding: 10vh; /*Adds padding qual to 10% of the viewport height to the top of the Portfolio title text*/
 }
 
 p {
     font-family:Georgia, 'Times New Roman', Times, serif;
     text-align: justify;
-    letter-spacing: 1px;
-    font-size: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    letter-spacing: 0.1vw;
+    font-size: 1.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 p:hover {
@@ -46,6 +62,8 @@ p:hover {
 
 a {
     color: black;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -60,10 +78,9 @@ img {
     filter: grayscale(75%);
     border-radius: 8px;
     max-width: 100%;
-    height: 340px;
+    height: 100%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto auto auto auto;
 }
 
 img:hover {
@@ -107,9 +124,10 @@ footer {
     float: left;
     display: block;
     color: white;
-    padding: 14px 16px;
+    padding: 0.75vw 1vw;
     text-decoration: none;
     font-family: Avant Garde, Helvetica;
+    font-size: 1.5vw;
     text-align: center;
     position: relative;
     -webkit-animation: moveNavText 5s;
@@ -132,6 +150,8 @@ footer {
     background-color: #f4f4f4;
     color: #ff12c4;
     font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease-in;
 }
 
 .navbar a.active {
@@ -169,6 +189,103 @@ footer {
     to {top: 0vw;}
 }
 /*-----End of Video Styling-----*/
+
+
+/*-------------Slideshow Styling-------------*/
+#slideshow_background {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.mySlides {
+    display: none;
+}
+
+#slideshow_container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+#slideshow_container a {
+    text-decoration: none;;
+}
+
+.slideshow_images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0,0,0,0.75);
+    width: 100%;
+}
+
+.previous, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0,0,0,0.75);
+    font-weight: bold;
+    border-radius: 0px 0px 7px 7px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: 0.25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 1;
+}
+
+.active, .dot:hover{
+    background-color: black;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+@keyframes fade {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+
+
 
 /*-----Table Styling Section-----*/
 * {
@@ -214,47 +331,186 @@ footer {
 /*-----End of Table Styling-----*/
 
 /*-----Contact Form Styling Section-----*/
-input[type=text] {
+.popupbtn {
+    position: fixed;
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: grey;
+    color:#ff12c4;
+    border: solid darkgray;
+    cursor: pointer;
+    -webkit-animation: movePopup 5s;
+    animation: movePopup 5s;
+}
+
+@keyframes movePopup {
+    from {right: -40vw;}
+    to {right: 1.75vw;}
+}
+
+@-webkit-keyframes movePopup {
+    from {right: -40vw;}
+    to {right: 1.75vw;}
+}
+
+.form-popup {
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: 0.5vw;
+    right: 0.5vw;
+}
+
+.form-container {
+    max-width: 49vw;
+    padding: 1vw;
+    background-color: #ffbbe3;
+}
+
+.form-container input[type=text] {
     width: 100%;
-    padding: 12px;
+    padding: 0.93vw;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
+    margin: 0.6vw 0 0.6vw 0;
     font-family: Garmond;
+    font-size: 1vw;;
 }
 
 input[type=text]:hover {
     box-shadow: 0 0 5px #ff12c4 inset;
 }
 
-input[type=submit] {
-    background-color: black;
-    color: white;
+button {
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: 0.3vw;
+    font-size: 1.5vw;
     font-weight: bold;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
+    padding: 1.5vw;
     cursor: pointer;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: Perpetua, Rockwell Extra Bold;
+    width: 100%;
+    height: auto;
 }
 
-input[type=submit]:hover {
+button:hover, .form-container .btn:hover {
+    color: hotpink;
+    background-color: darkgray;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: silver;
+}
+
+.form-container .btn {
     background-color: white;
-    color: #ff12c4;
-    transform: scale(1.5);
-    transition: transform 1.5s;
+    color: darkgray;
+    border-color: silver;
+    margin-bottom: 1vh;
 }
 
-form {
-    border-radius: 5px;
+.form-container .cancel {
+    background-color: #1a1a1a;
+    color: white;
+    border-color: silver;
+}
+
+.form-container .cancel:hover {
+    color: white;
     background-color: #ffbbe3;
-    padding: 10px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: black;
 }
 /*-----End of Contact Form Styling-----*/
+
+/*--------Media Query Section-----------*/
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3.75vw;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 2.75vw;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 2.25vw;
+    }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (min-width: 1311px)  and (max-width: 1535px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.35vw;
+    }
+}
+
+/*----Media Rule for navbar links for different screen sizes----*/
+@media screen and (max-width: 1080px) {
+    .navbar a {
+        width: 20%;
+        font-size: 2.5vw
+    }
+}
+
+/*-----Media Rule to enlarge the font of the white text for smaller screens */
+@media screen and (max-width: 1080px) {
+    .quote {
+        font-size: 3.5vw;
+    }
+    .white-text {
+        font-size: 4.5vw;
+    }
+}
+
+/*----Media Rule to increase the size of the columns for larger screens*/
+@media screen and (min-width: 1725px) {
+    .column_1 {
+        height: 550px;
+    }
+    .column_2 {
+        height: 550px;
+    }
+}
+
+/*---Media Rule to remove margin-top from h1 elements for extra large screens so the p text fits in the column */
+@media screen and (min-width: 2000px) {
+    h1 {
+        margin-top: 0;
+    }
+}
+/*-----End of Media Query Section------*/

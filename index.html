@@ -5,7 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width" />
         <title>Emily G. Allen - Programmer</title>
+        <link rel="shortcut icon" type="img/png" href="./Images/robot.png">
         <link rel="stylesheet" type="text/css" href="./css/myportfolio.css">
+        <script src="js/myportfolio.js" defer></script>
     </head>
 
     <!----Body---->
@@ -14,9 +16,10 @@
         <!-----Navbar----->
         <div class="navbar">
             <a class="active" href="#home">Home</a>
+            <a href="#slideshow">Slideshow</a>
             <a href="#about">About</a>
             <a href="#github">GitHub</a>
-            <a href="#contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
         </div>
 
         <!--Breaks to add space between navbat and first heading-->
@@ -43,11 +46,68 @@
                     </q>
                     <br> -Joseph Weizenbaum
                     <br>
-                    <br>My name is Emily G. Allen. Welcome to my portfolio website. On it, I will tell you about my background and experience.
+                    <br>My name is Emily G. Allen. Welcome to my portfolio website. 
+                    <br>On it, I will tell you about my background and experience.
                     <br>
                     <br>Thank you for stopping by and enjoy!
                 </p>
             </strong>
+        </div>
+        <!----Slideshow section added----->
+        <div id="slideshow">
+            <div id="slideshow_background">
+                <div id="slideshow_container">
+                    <!--------------SLIDE 1 OF 5---------------------------------->
+                    <div class="mySlides fade">
+                        <img class="slidshow_images" src="Images/emily_allen.png" alt="A Picture of Me">
+                        <div class="text">
+                            I am availble to assist you on your next project!
+                        </div>
+                    </div>
+                    <!--------------SLIDE 2 OF 5---------------------------------->
+                    <div class="mySlides fade">
+                        <img class="slidshow_images" src="Images/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS, and JS Logo">
+                        <div class="text">
+                            I am a full-stack software developer,<br> trained in: HTML, CSS, JavaScript,
+                        </div>
+                    </div>
+                    <!--------------SLIDE 3 OF 5---------------------------------->
+                    <div class="mySlides fade">
+                        <img class="slidshow_images" src="Images/Python.png" alt="Python Logo">
+                        <div class="text">
+                            the popular programming language Python,
+                        </div>
+                    </div>
+                    <!--------------SLIDE 4 OF 5---------------------------------->
+                    <div class="mySlides fade">
+                        <img class="slidshow_images" src="Images/SQL_and_Database.jpg" alt="SQL Logo">
+                        <div class="text">
+                            back end development, database and SQL.
+                        </div>
+                    </div>
+                    <!--------------SLIDE 5 OF 5---------------------------------->
+                    <div class="mySlides fade">
+                        <img class="slidshow_images" src="Images/contactphoto.png" alt="A picture of my choosing">
+                        <div class="text">
+                            <a class="white-text contact" onclick="openForm()">Contact me now!</a>
+                        </div>
+                    </div>
+
+                    <!-----Previous and next buttons----->
+                    <a class="previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+
+                <!-----Slideshow dots-------------------->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
         </div>
 
         <!----About Section---->
@@ -64,7 +124,7 @@
                     <br>
                     <br>I am a graduate of <a href="https:www.learncodinganywhere.com" target="_blank">The Tech Academy</a>'s Software Developer Boot Camp, and trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, Python and more.
                     <br>
-                    <br>I am a full-stack developer and would love to work with you on your project.<a href="#contact">Contact</a> me below!
+                    <br>I am a full-stack developer and would love to work with you on your project.<a onclick="openForm()" class="contact">Contact</a> me below!
                 </p>
             </div>
         </div>
@@ -86,24 +146,24 @@
             </div>
         </div>
 
-        <!----Contact Section---->
-        <div class="row" id="contact">
-            <!--Contact Image, Left Column-->
-            <div class="column_2 column_tall">
-                <img src="./Images/contactphoto.png" alt="Contact Me">
-            </div>
-            <!--Contact Form, Right Column-->
-            <div class="column_1  column_tall">
-                <h1>Contact</h1>
+        <!-------------Contact Form---------->
+        <div id="contact">
+
+            <button onclick="openForm()" class="popupbtn">CONTACT</button>
+            <div class="form-popup" id="myForm">
+                
                 <!--This specifies where and how to send the form data-->
-                <form action="https://formspree.io/f/mrgjqrgz" method="POST">
+                <form action="https://formspree.io/f/mrgjqrgz" method="POST" class="form-container">
+                    <h1>Contact</h1>
                     <label>Name:</label>
-                        <input type="text" id="name" name="name" placeholder="Please enter your name here">
+                        <input type="text" id="name" name="name" placeholder="Please enter your name here" required>
                     <label>Email:</label>
-                        <input type="text" id="email" name="email" placeholder="Please enter your email here">
+                        <input type="text" id="email" name="email" placeholder="Please enter your email here" required>
                     <label>Message:</label>
-                        <input type="text" id="Message" name="message" placeholder="Please write your message here">
-                        <input type="submit" value="SUBMIT">
+                        <input type="text" id="Message" name="message" placeholder="Please write your message here" required>
+                        
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>
