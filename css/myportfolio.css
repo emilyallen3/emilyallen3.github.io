@@ -160,12 +160,13 @@ footer {
 /*-----End of Navbar Styling-----*/
 
 /*-----Video Styling Section-----*/
-#typing_video {
+#elephant_video {
     position: fixed;
     right: 0;
     bottom: 0;
     min-width: 100%;
     z-index: -1;
+    opacity: .8;
 }
 
 @media screen and (max-width: 576px) {
