@@ -181,13 +181,13 @@ footer {
     width: 100%;
     padding: 20px;
     position: relative;
-    -webkit-animation: moveVideoText 5.75s;
-    animation: moveVideoText 5.75s;
+    -webkit-animation: moveVideoText 4s;
+    animation: moveVideoText 4s;
 }
 
 @keyframes moveVideoText {
     from {top: -100vw;}
-    to {top: 0vw;}
+    to {top: -50vw;}
 }
 /*-----End of Video Styling-----*/
 
