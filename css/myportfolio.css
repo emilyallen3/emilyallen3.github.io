@@ -187,7 +187,7 @@ footer {
 
 @keyframes moveVideoText {
     from {top: -100vw;}
-    to {top: -50vw;}
+    to {top: 0vw;}
 }
 /*-----End of Video Styling-----*/
 
@@ -203,7 +203,7 @@ footer {
 
 #slideshow_container {
     width: 39.5vw;
-    height: auto;
+    height: 40vw;
     padding-top: 4%;
     position: relative;
     margin: auto;
@@ -367,6 +367,7 @@ footer {
     max-width: 49vw;
     padding: 1vw;
     background-color: #ffbbe3;
+    border: solid black 2px;
 }
 
 .form-container input[type=text] {
@@ -421,7 +422,7 @@ button:hover, .form-container .btn:hover {
     background-color: #ffbbe3;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
-    border-color: black;
+    border: solid black 2px;
 }
 /*-----End of Contact Form Styling-----*/
 
