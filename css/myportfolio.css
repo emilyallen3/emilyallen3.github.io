@@ -18,7 +18,7 @@ body.fade-out {
     opacity: 0.1;
 }
 
-h1 {
+h1, h2 {
     text-transform:uppercase;
     font-family: Arial Narrow Bold;
     text-align: center;
@@ -26,7 +26,7 @@ h1 {
     color: #1a1a1a;
 }
 
-h1:hover {
+h1, h2:hover {
     filter: grayscale(5%);
     transform: scale(1.01);
     transition: transform 1s;
